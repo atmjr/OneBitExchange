@@ -5,9 +5,11 @@
       Simule sua conversão
     </div>
 
-    <div class='card-block'>
+    <div class='card-block' style="background-color: #0A0A2A;">
+
       <%= form_tag('/convert', method: :get, id: 'exchange_form') do %>
-        <div class='local_currency'>
+
+        <div class='local_currency' >
           <div class='form-group'>
             <p class='title'>Moeda Local</p>
             <%= select_tag 'source_currency', options_for_select(currency_list, 'BRL'), class: 'form-control', id: 'source_currency' %>
@@ -24,12 +26,20 @@
             <%= select_tag 'target_currency', options_for_select(currency_list, 'EUR'), class: 'form-control', id: 'target_currency'%>
           </div>
           <div class='form-group'>
-            <input type='text' id='result' name='result' class='form-control' placeholder='Resultado' readonly>
+            <input type='text' id='result' name='result' class='form-control' style='color: #000000' placeholder='Resultado' readonly>
           </div>
         </div>
+
         <div>
-          <button type='submit' class='btn btn-primary btn-exchange col-md-12'>CONVERTER</button>
+          <!-- <button type='submit' class='btn btn-primary btn-exchange col-md-12'>CONVERTER</button>  -->
+          <%= link_to image_tag("/icons/refresh.png", :title=>"Inverter moedas"),
+              {}, {id: 'invert'} %>
         </div>
+
+        <div>
+          <%= image_tag '/logo.png', class: 'img-fluid'%>
+        </div>
+
       <% end %>
     </div>
   </div>
