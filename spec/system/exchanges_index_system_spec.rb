@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'support/submit_form'
 
 RSpec.describe "Exchange Currency Process", :type => :system, js: true do
 
@@ -11,8 +12,10 @@ RSpec.describe "Exchange Currency Process", :type => :system, js: true do
     end
     #click_button 'CONVERTER'
 
+    submit_form '#exchange_form'
+
     # save_and_open_page
-    #expect(page).to have_content("value")
+    expect(page).to have_content("value")
   end
 
 end
